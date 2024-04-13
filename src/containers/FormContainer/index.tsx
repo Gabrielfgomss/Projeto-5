@@ -5,6 +5,7 @@ import { Form } from "./styles";
 import Contato from "../../models/contato";
 import { useDispatch } from "react-redux";
 import { cadastrar } from "../../store/reducers/contatos";
+import { handleModal } from "../../store/reducers/modal";
 
 const FormContainer = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ const FormContainer = () => {
     const contatoParaAdicionar = new Contato(email, nome, telefone);
 
     dispatch(cadastrar(contatoParaAdicionar));
+
+    dispatch(handleModal());
   };
   return (
     <>
